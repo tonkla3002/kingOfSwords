@@ -60,9 +60,9 @@ int main(void){
         checkWin();
 
         displayBoard();
-        printf("Turn : %d\n",turn);
-        printf("J1 : %d\n",j1);
-        printf("J2 : %d\n",j2);
+        // printf("Turn : %d\n",turn);
+        // printf("J1 : %d\n",j1);
+        // printf("J2 : %d\n",j2);
         printf("Player %c, select agent\n",player);
 
         printf("Enter the row [1-5]: ");
@@ -274,11 +274,11 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
     if(board[row][column] == 'Q' && board[rowE][columnE] == 'J'){
         if (j1 == 1 && boardBack[row][column] == '2'){
             j1--;
-            printf("J11 : %d\n",j1);
+            // printf("J11 : %d\n",j1);
         }
         else if(j2 == 1 && boardBack[row][column] == '1'){
             j2--;
-            printf("J21 : %d\n",j2);
+            // printf("J21 : %d\n",j2);
         }
         else if(boardBack[row][column] == '1' && j1 == 0){
            j1++;
@@ -286,7 +286,7 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
            board[row][column] = ' ';
            boardBack[rowE][column] = boardBack[row][column];
            boardBack[row][column] = ' ';
-           printf("J12 : %d\n",j1);
+        //    printf("J12 : %d\n",j1);
            
        }
         else if (boardBack[row][column] == '2' && j2 == 0){
@@ -295,14 +295,14 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
             board[row][column] = ' ';
             boardBack[rowE][column] = boardBack[row][column];
             boardBack[row][column] = ' ';
-            printf("J22 : %d\n",j2);
+            // printf("J22 : %d\n",j2);
        }
        else{
             board[rowE][column] = board[row][column];
             board[row][column] = ' ';
             boardBack[rowE][column] = boardBack[row][column];
             boardBack[row][column] = ' ';
-            printf("else1");
+            // printf("else1");
        }     
     }
     else{
@@ -310,7 +310,7 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
             board[row][column] = ' ';
             boardBack[rowE][column] = boardBack[row][column];
             boardBack[row][column] = ' ';
-            printf("else2");
+            // printf("else2");
     }
 }
 
