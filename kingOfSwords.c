@@ -1,3 +1,5 @@
+//jชนะqแบบยังไม่โดน
+//
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
@@ -32,17 +34,17 @@ void eatAgentJ(int row,int column,int rowE,int columnE);
 
 int main(void){
 
-    board[0][1] = 'J';
-    board[0][2] = 'Q';
-    board[0][3] = 'K';
+    board[3][2] = 'J';
+    board[3][1] = 'Q';
+    board[3][3] = 'K';
 
     board[4][1] = 'J';
     board[4][2] = 'Q';
     board[4][3] = 'K';
 
-    boardBack[0][1] = '1';
-    boardBack[0][3] = '1';
-    boardBack[0][2] = '1';
+    boardBack[3][1] = '1';
+    boardBack[3][3] = '1';
+    boardBack[3][2] = '1';
 
     boardBack[4][1] = '2';
     boardBack[4][2] = '2';
@@ -79,10 +81,7 @@ int main(void){
         else
             player ='2';
 
-        
         checkWin();
-
-       
 
         //random position falling 
         if(turn % 2 == 0){
@@ -247,13 +246,18 @@ void  checkWin(){
             }
         }
     }
-    if(count1 == 0){
+    if(count1 == 0 && count2 == 0){
+        printf("!!!! Draw!!!!");
+        displayBoard();
+        start = 0;
+    }
+    else if(count1 == 0){
         printf("!!!! Plyer 2 WIN !!!!");
         displayBoard();
         start = 0;
     }
     else if(count2 == 0){
-        printf("!!!! Plyer 2 WIN !!!!");
+        printf("!!!! Plyer 1 WIN !!!!");
         displayBoard();
         start = 0;
     }
@@ -307,8 +311,9 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
     }
     else{
             board[rowE][column] = board[row][column];
+            board[rowE][columnE] = board[row][column];
             board[row][column] = ' ';
-            boardBack[rowE][column] = boardBack[row][column];
+            boardBack[rowE][columnE] = boardBack[row][column];
             boardBack[row][column] = ' ';
             // printf("else2");
     }
