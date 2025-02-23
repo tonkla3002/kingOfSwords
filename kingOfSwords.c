@@ -34,17 +34,17 @@ void eatAgentJ(int row,int column,int rowE,int columnE);
 
 int main(void){
 
-    board[3][2] = 'J';
-    board[3][1] = 'Q';
-    board[3][3] = 'K';
+    board[0][1] = 'J';
+    board[0][2] = 'Q';
+    board[0][3] = 'K';
 
     board[4][1] = 'J';
     board[4][2] = 'Q';
     board[4][3] = 'K';
 
-    boardBack[3][1] = '1';
-    boardBack[3][3] = '1';
-    boardBack[3][2] = '1';
+    boardBack[0][1] = '1';
+    boardBack[0][3] = '1';
+    boardBack[0][2] = '1';
 
     boardBack[4][1] = '2';
     boardBack[4][2] = '2';
