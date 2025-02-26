@@ -34,8 +34,8 @@ void eatAgentJ(int row,int column,int rowE,int columnE);
 
 int main(void){
 
-    board[0][1] = 'J';
-    board[0][2] = 'Q';
+    board[0][2] = 'J';
+    board[0][1] = 'Q';
     board[0][3] = 'K';
 
     board[4][1] = 'J';
@@ -107,7 +107,6 @@ int main(void){
 
 
 void displayBoard() {
-
     printf("\n  ____________________\n");
     for (int i = 0; i < 5; i++) {
 
@@ -119,17 +118,13 @@ void displayBoard() {
             }
             else{
                 printf("| %c ", board[i][j]);
-
             }
-
         }
-
         printf("|");
         printf("\n  ____________________\n");
 
     }
     printf("  1   2   3   4   5\n");
-
 }
 
 
@@ -159,11 +154,9 @@ void moveAgent(int row,int column, char player) {
                     else{
                         printf("!!! Please select again !!!\n\n");
                     }
-
                     break;
 
                 case 2:
-
                     if(board[row][column-1] == ' ' || 
                     (board[row][column-1] == 'K' && board[row][column] == 'J') || 
                     (board[row][column-1] == 'J' && board[row][column] == 'Q') || 
@@ -171,21 +164,18 @@ void moveAgent(int row,int column, char player) {
                         eatAgentJ(row,column,row,column-1);
                         
                     }
-
                     else if(board[row][column-1] == board[row][column] ){
                         board[row][column-1] = ' ';
                         board[row][column] = ' ';
                         boardBack[row][column-1] = ' ';
                         boardBack[row][column] = ' ';
                     }
-
                     else{
                         printf("\n!!! Please select again !!!\n");
                     }
                     break;
 
                 case 3:
-
                     if(board[row][column+1] == ' ' || 
                     (board[row][column+1] == 'K' && board[row][column] == 'J') || 
                     (board[row][column+1] == 'J' && board[row][column] == 'Q') || 
@@ -198,7 +188,6 @@ void moveAgent(int row,int column, char player) {
                         boardBack[row][column+1] = ' ';
                         boardBack[row][column] = ' ';
                     }
-
                     else{
                         printf("!!! Please select again !!!\n\n");
                     }
@@ -246,6 +235,7 @@ void  checkWin(){
             }
         }
     }
+
     if(count1 == 0 && count2 == 0){
         printf("!!!! Draw!!!!");
         displayBoard();
@@ -276,6 +266,7 @@ void  clearXPosition(){
 
 void eatAgentJ(int row,int column,int rowE,int columnE){
     if(board[row][column] == 'Q' && board[rowE][columnE] == 'J'){
+        
         if (j1 == 1 && boardBack[row][column] == '2'){
             j1--;
             // printf("J11 : %d\n",j1);
@@ -285,22 +276,22 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
             // printf("J21 : %d\n",j2);
         }
         else if(boardBack[row][column] == '1' && j1 == 0){
-           j1++;
-           board[rowE][column] = board[row][column];
-           board[row][column] = ' ';
-           boardBack[rowE][column] = boardBack[row][column];
-           boardBack[row][column] = ' ';
-        //    printf("J12 : %d\n",j1);
-           
-       }
-        else if (boardBack[row][column] == '2' && j2 == 0){
-            j2++;
-            board[rowE][column] = board[row][column];
+            j1++;
+            board[rowE][columnE] = board[row][column];
             board[row][column] = ' ';
             boardBack[rowE][column] = boardBack[row][column];
             boardBack[row][column] = ' ';
-            // printf("J22 : %d\n",j2);
-       }
+         //    printf("J12 : %d\n",j1);
+            
+         }
+         else if (boardBack[row][column] == '2' && j2 == 0){
+             j2++;
+             board[rowE][columnE] = board[row][column];
+             board[row][column] = ' ';
+             boardBack[rowE][column] = boardBack[row][column];
+             boardBack[row][column] = ' ';
+             // printf("J22 : %d\n",j2);
+        }
        else{
             board[rowE][column] = board[row][column];
             board[row][column] = ' ';
@@ -310,7 +301,7 @@ void eatAgentJ(int row,int column,int rowE,int columnE){
        }     
     }
     else{
-            board[rowE][column] = board[row][column];
+            // board[rowE][columnE] = board[row][column];
             board[rowE][columnE] = board[row][column];
             board[row][column] = ' ';
             boardBack[rowE][columnE] = boardBack[row][column];
